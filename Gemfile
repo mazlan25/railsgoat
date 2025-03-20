@@ -4,7 +4,7 @@ source "https://rubygems.org"
 #don't upgrade
 gem "rails", "8.0.2"
 
-ruby "3.2.0"
+ruby "3.2.7"
 
 gem "aruba"
 gem "bcrypt"

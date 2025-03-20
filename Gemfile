@@ -2,9 +2,9 @@
 source "https://rubygems.org"
 
 #don't upgrade
-gem "rails", "6.0.0"
+gem "rails", "8.0.2"
 
-ruby "2.6.5"
+ruby "3.2.0"
 
 gem "aruba"
 gem "bcrypt"
@@ -33,7 +33,7 @@ gem "unicorn"
 # NOTE: https://github.com/sj26/mailcatcher#bundler
 # gem 'mailcatcher'
 
-group :development, :mysql do
+group :development, :openshift do
   gem "better_errors"
   gem "binding_of_caller"
   gem "bundler-audit"
@@ -47,7 +47,7 @@ group :development, :mysql do
   gem "travis-lint"
 end
 
-group :development, :test, :mysql do
+group :development, :test, :openshift do
   gem "capybara"
   gem "database_cleaner"
   gem "launchy"
@@ -60,6 +60,6 @@ group :openshift do
   gem "pg"
 end
 
-group :mysql do
-  gem "mysql2"
-end
+# group :mysql do
+#   gem "mysql2"
+# end

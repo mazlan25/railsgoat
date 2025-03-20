@@ -15,10 +15,12 @@ jobs:
           bundler-cache: true
 
       - name: Update Bundler
-        run: gem install bundler
+        run: |
+          gem uninstall -aIx bundler
+          gem install bundler -v 2.4.22 # Use latest Bundler
 
       - name: Install dependencies
-        run: bundle install
+        run: bundle _2.4.22_ install
 
       - name: Install Bundler Audit
         run: gem install bundler-audit

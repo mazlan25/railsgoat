@@ -1,4 +1,4 @@
-# Ways to Contribute to RailsGoat
+# Ways to Contribute to RailsGoat1
 
 Thanks for your interest on contributing to RailsGoat!
 Here are a few general guidelines on contributing and reporting

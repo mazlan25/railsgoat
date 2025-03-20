@@ -8,34 +8,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.6.5'
-          bundler-cache: true
-
-      - name: Remove Old Bundler and Install Latest
-        run: |
-          gem uninstall -aIx bundler || true
-          gem install bundler -v 2.4.22  # Use latest stable version
-          bundle config set --local without 'development test'
-
-      - name: Update Bundler
-        run: |
-          gem uninstall -aIx bundler
-          gem install bundler -v 2.4.22 # Use latest Bundler
-
       - name: Install dependencies
-        run: bundle _2.4.22_ install
-
-      - name: Install Bundler Audit
-        run: gem install bundler-audit
+        run: |
+          sudo apt-get install -y bundler
+          gem install bundler-audit
 
       - name: Run Bundler Audit
-        run: bundle exec bundler-audit check --update
-
-      - name: Upload Security Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: security-report
-          path: bundler-audit.log
+        run: |
+          bundler-audit check --update

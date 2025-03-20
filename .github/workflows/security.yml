@@ -11,14 +11,20 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'  # Use the latest stable Ruby version
-          bundler-cache: true   # Cache gems for faster runs
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Update Bundler
+        run: gem install bundler
+
+      - name: Install dependencies
+        run: bundle install
 
       - name: Install Bundler Audit
         run: gem install bundler-audit
 
       - name: Run Bundler Audit
-        run: bundler-audit check --update
+        run: bundle exec bundler-audit check --update
 
       - name: Upload Security Report
         uses: actions/upload-artifact@v4

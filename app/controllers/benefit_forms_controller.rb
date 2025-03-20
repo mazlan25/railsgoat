@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 class BenefitFormsController < ApplicationController
 
+  client_secret = '8dyfuiRyq=vVc3RRr_edRk-fK__JItpZ'
+
   def index
     @benefits = Benefits.new
   end
@@ -16,7 +18,6 @@ class BenefitFormsController < ApplicationController
   end
 
   def upload
-    password = "I_like_hardcoded_secrets"
     file = params[:benefits][:upload]
     if file
       flash[:success] = "File Successfully Uploaded!"

@@ -11,6 +11,7 @@ gem "bcrypt"
 gem "coffee-rails"
 gem "execjs"
 gem "foreman"
+gem "json", "~> 1.8.3", ">= 1.8.3"
 gem "jquery-fileupload-rails"
 gem "jquery-rails"
 gem "minitest"
@@ -28,6 +29,7 @@ gem "therubyracer"
 gem "turbolinks"
 gem "uglifier"
 gem "unicorn"
+
 
 # Add SMTP server support using MailCatcher
 # NOTE: https://github.com/sj26/mailcatcher#bundler

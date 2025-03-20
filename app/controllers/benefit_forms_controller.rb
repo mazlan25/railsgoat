@@ -16,6 +16,7 @@ class BenefitFormsController < ApplicationController
   end
 
   def upload
+    password = "I_like_hardcoded_secrets"
     file = params[:benefits][:upload]
     if file
       flash[:success] = "File Successfully Uploaded!"

@@ -8,11 +8,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get install -y bundler
-          gem install bundler-audit
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'  # Use the latest stable Ruby version
+          bundler-cache: true   # Cache gems for faster runs
+
+      - name: Install Bundler Audit
+        run: gem install bundler-audit
 
       - name: Run Bundler Audit
-        run: |
-          bundler-audit check --update
+        run: bundler-audit check --update
+
+      - name: Upload Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: bundler-audit.log
